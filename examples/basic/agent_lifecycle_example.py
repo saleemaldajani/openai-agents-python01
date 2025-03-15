@@ -4,8 +4,12 @@ from typing import Any
 
 from pydantic import BaseModel
 
-from agents import Agent, AgentHooks, RunContextWrapper, Runner, Tool, function_tool
+from agents import Agent, AgentHooks, RunContextWrapper, Runner, Tool, function_tool,set_default_openai_key
+import os 
 
+api_key = os.environ.get("OPENAI_API_KEY")
+print(f"OPENAI_API_KEY {api_key}")
+set_default_openai_key(api_key)
 
 class CustomAgentHooks(AgentHooks):
     def __init__(self, display_name: str):
