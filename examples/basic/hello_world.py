@@ -1,6 +1,18 @@
 import asyncio
+import openai 
+from agents import Agent, Runner, set_default_openai_key
+import os
 
-from agents import Agent, Runner
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+print(f"OPENAI_API_KEY {OPENAI_API_KEY}")
+set_default_openai_key(OPENAI_API_KEY)
+
+# get OPEANAI_API_KEY from codespaces secrets
+
+    # This is the default and can be omitted
+
+if not OPENAI_API_KEY :
+    raise ValueError("OPENAI_API_KEY environment variable not set")
 
 
 async def main():
