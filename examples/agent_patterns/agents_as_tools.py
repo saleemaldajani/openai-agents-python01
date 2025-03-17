@@ -1,7 +1,12 @@
 import asyncio
 
 from agents import Agent, ItemHelpers, MessageOutputItem, Runner, trace
+from agents import set_default_openai_key
+import os
 
+api_key = os.environ.get("OPENAI_API_KEY")
+print(f"OPENAI_API_KEY {api_key}")
+set_default_openai_key(api_key)
 """
 This example shows the agents-as-tools pattern. The frontline agent receives a user message and
 then picks which agents to call, as tools. In this case, it picks from a set of translation

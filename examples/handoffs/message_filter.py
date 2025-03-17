@@ -5,7 +5,12 @@ import random
 
 from agents import Agent, HandoffInputData, Runner, function_tool, handoff, trace
 from agents.extensions import handoff_filters
+import os
+from agents import set_default_openai_key
 
+api_key = os.environ.get("OPENAI_API_KEY")
+print(f"OPENAI_API_KEY {api_key}")
+set_default_openai_key(api_key)
 
 @function_tool
 def random_number_tool(max: int) -> int:
