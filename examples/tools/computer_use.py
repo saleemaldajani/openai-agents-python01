@@ -20,6 +20,10 @@ from agents import (
 # logging.getLogger("openai.agents").setLevel(logging.DEBUG)
 # logging.getLogger("openai.agents").addHandler(logging.StreamHandler())
 
+from agents import set_default_openai_key
+import os
+api_key = os.environ.get("OPENAI_API_KEY")
+set_default_openai_key(api_key)
 
 async def main():
     async with LocalPlaywrightComputer() as computer:

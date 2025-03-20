@@ -6,6 +6,12 @@ from pydantic import BaseModel
 
 from agents import Agent, RunContextWrapper, RunHooks, Runner, Tool, Usage, function_tool
 
+from agents import set_default_openai_key
+import os
+api_key = os.environ.get("OPENAI_API_KEY")
+set_default_openai_key(api_key)
+
+
 
 class ExampleHooks(RunHooks):
     def __init__(self):

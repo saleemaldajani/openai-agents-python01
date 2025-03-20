@@ -2,6 +2,12 @@ import asyncio
 
 from agents import Agent, Runner, WebSearchTool, trace
 
+from agents import set_default_openai_key
+import os
+api_key = os.environ.get("OPENAI_API_KEY")
+set_default_openai_key(api_key)
+
+
 
 async def main():
     agent = Agent(

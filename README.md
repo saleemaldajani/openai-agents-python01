@@ -1,3 +1,23 @@
+#Steps for running
+
+Run in terminal:
+
+pip install openai-agents
+
+Add this to script after last import and before the code starts: 
+
+from agents import set_default_openai_key
+import os
+api_key = os.environ.get("OPENAI_API_KEY")
+set_default_openai_key(api_key)
+
+Multi-agent:
+
+pip install rich
+
+python -m examples.research_bot.main
+
+
 # OpenAI Agents SDK
 
 The OpenAI Agents SDK is a lightweight yet powerful framework for building multi-agent workflows.
